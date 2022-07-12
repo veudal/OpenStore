@@ -1,0 +1,81 @@
+﻿<Window x:Class="OpenStore.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OpenStore"
+        mc:Ignorable="d"
+        Title="Open Store" MinHeight="700" MinWidth="1240" Height="700" Width="1240" WindowStartupLocation="CenterScreen" Background="#FF1F1F1F">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF470B0B" Offset="1.15"/>
+                <GradientStop Color="DarkRed"/>
+                <GradientStop Color="Red" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock FontSize="17" FontWeight="DemiBold" Foreground="White"  Grid.ColumnSpan="5" Grid.RowSpan="2" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Grid.Row="1" Grid.Column="12" TextAlignment="Center">
+        <Run>Use free &amp; open-source programs from me with just one click. Created with &lt;3 by </Run>
+               <Hyperlink Click="Hyperlink_Click" Background="White" FontWeight="Medium"  Foreground="Black" >
+                   <TextBlock Text="SagMeinenNamen"/>
+               </Hyperlink>
+        </TextBlock>
+
+        <TextBlock Text="Open Store" FontSize="50" FontWeight="DemiBold" Foreground="White" TextDecorations="Underline"  FontStyle="Italic" Grid.ColumnSpan="10" Grid.RowSpan="3" VerticalAlignment="Top" Grid.Row="1" Grid.Column="4" TextAlignment="Center"/>
+        <ScrollViewer Grid.Column="1" Grid.Row="4" Grid.RowSpan="14" Grid.ColumnSpan="16" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+            <ListView x:Name="Programs" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                <ListView.Background>
+                    <LinearGradientBrush EndPoint="0,0.5" StartPoint="1,0.5">
+                        <GradientStop Color="Red" Offset="0.8"/>
+                        <GradientStop Color="#FFFF6464"/>
+                    </LinearGradientBrush>
+                </ListView.Background>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel VerticalAlignment="Stretch" Background="Transparent" Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </ScrollViewer>
+    </Grid>
+</Window>
