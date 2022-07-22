@@ -62,17 +62,11 @@
         </TextBlock>
 
         <TextBlock Text="Open Store" FontSize="50" FontWeight="DemiBold" Foreground="White" TextDecorations="Underline"  FontStyle="Italic" Grid.ColumnSpan="10" Grid.RowSpan="3" VerticalAlignment="Top" Grid.Row="1" Grid.Column="4" TextAlignment="Center"/>
-        <ScrollViewer Grid.Column="1" Grid.Row="4" Grid.RowSpan="14" Grid.ColumnSpan="16" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
-            <ListView x:Name="Programs" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                <ListView.Background>
-                    <LinearGradientBrush EndPoint="0,0.5" StartPoint="1,0.5">
-                        <GradientStop Color="Red" Offset="0.8"/>
-                        <GradientStop Color="#FFFF6464"/>
-                    </LinearGradientBrush>
-                </ListView.Background>
+        <ScrollViewer Grid.Column="1" Grid.Row="5" Grid.RowSpan="14" Grid.ColumnSpan="16" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="False" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+            <ListView x:Name="Programs" Background="Transparent" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel VerticalAlignment="Stretch" Background="Transparent" Orientation="Horizontal" />
+                        <WrapPanel VerticalAlignment="Stretch"   HorizontalAlignment="Center" Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
             </ListView>

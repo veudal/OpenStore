@@ -28,8 +28,8 @@ namespace OpenStore
 {
     public partial class MainWindow : Window
     {
-        string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\OpenStore\\";
-        string[] data;
+        readonly string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\OpenStore\\";
+        readonly string[] data;
 
         public MainWindow()
         {
@@ -44,8 +44,10 @@ namespace OpenStore
             {
                 if (i % 2 == 0)
                 {
-                    Grid parentGrid = new Grid();
-                    parentGrid.VerticalAlignment = VerticalAlignment.Top;
+                    Grid parentGrid = new Grid
+                    {
+                        VerticalAlignment = VerticalAlignment.Stretch
+                    };
                     parentGrid.RowDefinitions.Add(new RowDefinition());
                     parentGrid.RowDefinitions.Add(new RowDefinition());
                     for (int k = i; k < i + 2; k++)
@@ -61,29 +63,35 @@ namespace OpenStore
                             string[] seperatedData = data[k].Split('|');
                             string programName = seperatedData[0];
 
-                            TextBlock text = new TextBlock();
-                            text.TextAlignment = TextAlignment.Center;
-                            text.VerticalAlignment = VerticalAlignment.Center;
-                            text.Foreground = Brushes.White;
-                            text.FontSize = 25;
-                            text.FontWeight = FontWeights.Bold;
-                            text.Text = programName;
+                            TextBlock text = new TextBlock
+                            {
+                                TextAlignment = TextAlignment.Center,
+                                VerticalAlignment = VerticalAlignment.Center,
+                                Foreground = Brushes.White,
+                                FontSize = 25,
+                                FontWeight = FontWeights.Bold,
+                                Text = programName
+                            };
 
 
                             wc.DownloadFile(seperatedData[1], folderPath + "Icons\\" + programName);
-                            Image image = new Image();
-                            image.Source = Imaging.CreateBitmapSourceFromHBitmap(new Bitmap(folderPath + "Icons\\" + programName).GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
-                            Button button = new Button();
-                            button.Uid = k.ToString();
-                            button.Width = 100;
-                            button.Content = "Install";
-                            button.FontSize = 18;
-                            button.Foreground = Brushes.Black;
-                            button.Background = Brushes.White;
-                            button.FontWeight = FontWeights.Bold;
-                            button.BorderThickness = new Thickness(0, 0, 0, 0);
-                            button.HorizontalAlignment = HorizontalAlignment.Center;
-                            button.VerticalAlignment = VerticalAlignment.Bottom;
+                            Image image = new Image
+                            {
+                                Source = Imaging.CreateBitmapSourceFromHBitmap(new Bitmap(folderPath + "Icons\\" + programName).GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions())
+                            };
+                            Button button = new Button
+                            {
+                                Uid = k.ToString(),
+                                Width = 100,
+                                Content = "Install",
+                                FontSize = 18,
+                                Foreground = Brushes.Black,
+                                Background = Brushes.White,
+                                FontWeight = FontWeights.Bold,
+                                BorderThickness = new Thickness(0, 0, 0, 0),
+                                HorizontalAlignment = HorizontalAlignment.Center,
+                                VerticalAlignment = VerticalAlignment.Bottom
+                            };
                             button.Click += Button_Click;
                             grid.Children.Add(text);
                             grid.Children.Add(image);
