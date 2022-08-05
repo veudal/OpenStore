@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DK.WshRuntime;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -28,15 +29,21 @@ namespace OpenStore
 {
     public partial class MainWindow : Window
     {
-        readonly string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\OpenStore\\";
-        readonly string[] data;
+        readonly static string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\OpenStore\\";
+        string[] data;
 
         public MainWindow()
         {
             InitializeComponent();
             Directory.CreateDirectory(folderPath + "Icons");
             Directory.CreateDirectory(folderPath + "Programs");
+            CreateDesktopShortcut();
+            CreateStartMenuShortcut();
+            LoadPrograms();
+        }
 
+        private void LoadPrograms()
+        {
             WebClient wc = new WebClient();
             wc.DownloadFile("https://raw.githubusercontent.com/SagMeinenNamen/OpenStore/main/Programs/Data", folderPath + "data");
             data = File.ReadAllLines(folderPath + "data");
@@ -105,7 +112,7 @@ namespace OpenStore
                             Grid.SetRow(image, 2);
                             Grid.SetRow(rect2, 3);
                             Grid.SetRow(button, 4);
-                            if(parentGrid.Children.Count > 0)
+                            if (parentGrid.Children.Count > 0)
                             {
                                 grid.Margin = new Thickness(0, 50, 0, 0);
                             }
@@ -115,8 +122,36 @@ namespace OpenStore
                     }
                     Programs.Items.Add(parentGrid);
                 }
-            }   
+            }
         }
+
+        private static void CreateDesktopShortcut()
+        {
+            string pathToExe = folderPath + "OpenStore.exe";
+            if (File.Exists(pathToExe))
+            {
+                string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string shortcutLocation = System.IO.Path.Combine(desktop, "Open Store.lnk");
+                if (!File.Exists(shortcutLocation))
+                {
+                    WshInterop.CreateShortcut(shortcutLocation, "Open Store", pathToExe, null, null);
+                }
+            }
+        }
+
+        private static void CreateStartMenuShortcut()
+        {
+            string pathToExe = folderPath + "OpenStore.exe";
+            if (File.Exists(pathToExe))
+            {
+                string shortcutLocation = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu) + "\\Programs\\", "OpenStore.lnk");
+                if (!File.Exists(shortcutLocation))
+                {
+                    WshInterop.CreateShortcut(shortcutLocation, null, pathToExe, null, null);
+                }
+            }
+        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
