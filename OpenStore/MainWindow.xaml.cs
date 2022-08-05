@@ -144,7 +144,7 @@ namespace OpenStore
             string pathToExe = folderPath + "OpenStore.exe";
             if (File.Exists(pathToExe))
             {
-                string shortcutLocation = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu) + "\\Programs\\", "OpenStore.lnk");
+                string shortcutLocation = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu) + "\\Programs\\", "Open Store.lnk");
                 if (!File.Exists(shortcutLocation))
                 {
                     WshInterop.CreateShortcut(shortcutLocation, null, pathToExe, null, null);
