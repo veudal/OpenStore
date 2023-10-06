@@ -6,4 +6,4 @@ This program is able to download any of my open source programs in just a few cl
 
 # Screenshot
 
-![image](https://user-images.githubusercontent.com/62218506/178584027-507eebd7-0582-4ead-87bc-1df2a7622e05.png)
+![image](https://github.com/veeud/OpenStore/assets/62218506/ab1f50aa-9f01-49fd-8f6c-0be5779caa74)
