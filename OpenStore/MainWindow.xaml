@@ -54,10 +54,10 @@
                 <GradientStop Color="Red" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBlock FontSize="17" FontWeight="DemiBold" Foreground="White"  Grid.ColumnSpan="5" Grid.RowSpan="2" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Grid.Row="1" Grid.Column="12" TextAlignment="Center">
-        <Run>Use free &amp; open-source programs from me with just one click. Created with &lt;3 by </Run>
-               <Hyperlink Click="Hyperlink_Click" Background="White" FontWeight="Medium"  Foreground="Black" >
-                   <TextBlock Text="SagMeinenNamen"/>
+        <TextBlock FontSize="20" FontWeight="DemiBold" Foreground="White"  Grid.ColumnSpan="5" Grid.RowSpan="4" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Grid.Row="1" Grid.Column="13" TextAlignment="Center">
+        <Run>Use free &amp; open-source programs from me with just one click.</Run><LineBreak/><LineBreak/><Run>Made with ❤️ by </Run>
+               <Hyperlink Click="Hyperlink_Click" Background="White" FontWeight="Bold" FontStyle="Italic"  Foreground="Turquoise" >
+                   <TextBlock Text="veud"/>
                </Hyperlink>
         </TextBlock>
 

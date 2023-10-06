@@ -45,7 +45,7 @@ namespace OpenStore
         private void LoadPrograms()
         {
             WebClient wc = new WebClient();
-            wc.DownloadFile("https://raw.githubusercontent.com/SagMeinenNamen/OpenStore/main/Programs/Data", folderPath + "data");
+            wc.DownloadFile("https://raw.githubusercontent.com/veeud/OpenStore/main/Programs/Data", folderPath + "data");
             data = File.ReadAllLines(folderPath + "data");
             for (int i = 0; i < data.Length; i++)
             {
@@ -195,7 +195,7 @@ namespace OpenStore
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://github.com/SagMeinenNamen/");
+            Process.Start("https://github.com/veeud/");
         }
     }
 }
